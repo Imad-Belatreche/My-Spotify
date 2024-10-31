@@ -1,6 +1,6 @@
 # my_spotify
 
-A new Flutter project.
+A fully functional Spotify clone using Firebase, CRUD and BLoC. 
 
 ## Getting Started
 
