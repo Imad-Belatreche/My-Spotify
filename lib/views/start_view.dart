@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:my_spotify/constants/routes.dart';
 import 'package:my_spotify/widgets/my_outline_login_button.dart';
 
 class StartView extends StatelessWidget {
@@ -8,29 +9,21 @@ class StartView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _screenSize = MediaQuery.of(context).size;
+    final screenSize = MediaQuery.of(context).size;
 
     return Scaffold(
       body: Stack(
         children: [
           Align(
-            alignment: AlignmentDirectional.center,
-            child: Container(
-              color: Colors.black,
-              height: _screenSize.height,
-              width: _screenSize.width,
-            ),
-          ),
-          Align(
             alignment: AlignmentDirectional.topCenter,
             child: Image.asset(
               "assets/Quran-img.jpg",
-              width: _screenSize.width,
-              height: _screenSize.height * 0.6,
+              width: screenSize.width,
+              height: screenSize.height * 0.6,
             ),
           ),
           Padding(
-            padding: EdgeInsets.fromLTRB(10, 10, 10, _screenSize.height * 0.1),
+            padding: EdgeInsets.fromLTRB(10, 10, 10, screenSize.height * 0.1),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -39,7 +32,7 @@ class StartView extends StatelessWidget {
                 Center(
                   child: SvgPicture.asset(
                     "assets/Brand/Logo.svg",
-                    width: _screenSize.width * 0.13,
+                    width: screenSize.width * 0.13,
                   ),
                 ),
                 const SizedBox(
@@ -59,15 +52,17 @@ class StartView extends StatelessWidget {
                   height: 15,
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).pushNamed(registerView);
+                  },
                   style: ElevatedButton.styleFrom(
                     foregroundColor: Colors.black,
                     backgroundColor: const Color(0xFF1ED760),
                     padding: const EdgeInsets.symmetric(
                         horizontal: 20, vertical: 10),
                     fixedSize: Size(
-                      _screenSize.width * 0.9,
-                      _screenSize.height * 0.065,
+                      screenSize.width * 0.9,
+                      screenSize.height * 0.065,
                     ),
                   ),
                   child: Text(
@@ -82,7 +77,7 @@ class StartView extends StatelessWidget {
                   height: 15,
                 ),
                 MyOutlineLoginButton(
-                  screenSize: _screenSize,
+                  screenSize: screenSize,
                   onPressed: () {},
                   label: "Continue with Google",
                   icon: SvgPicture.asset(
@@ -94,7 +89,7 @@ class StartView extends StatelessWidget {
                   height: 15,
                 ),
                 MyOutlineLoginButton(
-                  screenSize: _screenSize,
+                  screenSize: screenSize,
                   onPressed: () {},
                   label: "Continue with Facebook",
                   icon: SvgPicture.asset(

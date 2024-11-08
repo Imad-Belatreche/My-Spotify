@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:my_spotify/constants/routes.dart';
+import 'package:my_spotify/views/register_views.dart';
 import 'package:my_spotify/views/start_view.dart';
 
 class App extends StatelessWidget {
@@ -7,9 +9,18 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: StartView(),
+      theme: ThemeData.dark().copyWith(
+          scaffoldBackgroundColor: Colors.black,
+          appBarTheme: const AppBarTheme().copyWith(
+            backgroundColor: Colors.black,
+          )),
+      routes: {
+        startView: (context) => const StartView(),
+        registerView: (context) => const RegisterViews(),
+      },
+      home: const StartView(),
     );
   }
 }
